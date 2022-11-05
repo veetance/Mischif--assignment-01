@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;400;500;600;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+body,
+html{
+  height: 100vh;
+  margin-bottom: 0px !important;
+  padding: 0px !important;
+  background-color: black;
+  border: none !important;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+
+/* font styles */
+p {
+ font-size: 16px;
+ font-weight: 400;
+}
+
+h1{
+  font-family: 'Bungee', cursive;
+  margin: 0px;
+  font-size: 1.6rem;
+  color:black;
+}
+
+/* navbar styles */
+
+.navbar {
+
+  overflow: hidden !important;
+  height: fit-content;
+
+  border-radius: 0rem 0rem .5rem .5rem ;
+
+}
+
+.navbar .title {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0px;
+  width:60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 2rem;
+
+  background-color: black;
+}
+
+.navbar-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  padding: 0px;
+  transform: translate3d(0,0,0);
+  z-index: 10;
+  background-color: rgba(240, 248, 255, 1);
+  overflow: hidden !important;
+}
+
+.nav-logo{
+display: flex;
+width: 80px;
+height: 80px;
+}
+
+.nav-logo img{
+  position: absolute;
+  top: 27%;
+  left: -15%;
+  width: 70%;
+}
+
+.material-symbols-outlined{
+  font-weight: 700;
+}
+
+/* page */
+
+.page-content {
+padding: 8px;
+padding-top: 88px;
+
+background-color: aqua !important;
+
+height: 100vh;
+
+}
+
+
+/* card */
+
+.card{
+  height: 100%;
+  margin: 0px;
+}
+
+
+
+.card-header {
+  min-height: fit-content !important;
+  height: 2% !important;
+  color: var(--f7-card-header-text-color);
+  font-size: var(--f7-card-header-font-size);
+  font-weight: var(--f7-card-header-font-weight);
+  padding: 0px;
+  margin: 0px;
+
+  background-color: aquamarine;
+}
+
+.card-header p{
+  display: flex;
+  align-items: center;
+  margin: 0px !important;
+  padding: 0px !important;
+  height: 100% !important;
+  position: absolute;
+  top: -50%;
+  left: -4px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: bisque;
+}
