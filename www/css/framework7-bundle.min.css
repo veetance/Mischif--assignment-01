@@ -12,7 +12,7 @@
 
 :root {
   --f7-theme-color: #f8005b;
-  --f7-theme-color-rgb: 0, 122, 255;
+  --f7-theme-color-rgb:#f8005b;
   --f7-theme-color-shade: #910120;
   --f7-theme-color-tint: #ff5278;
   --f7-safe-area-left: 0px;
@@ -3050,6 +3050,8 @@ html.device-full-viewport body {
 }
 .md .navbar a.link.icon-only:before,
 .md .navbar a.link.input-clear-button:before,
+
+
 .md .navbar a.link.notification-close-button:before,
 .md .navbar a.link.ripple-inset:before,
 .md .navbar a.link.searchbar-disable-button:before {
