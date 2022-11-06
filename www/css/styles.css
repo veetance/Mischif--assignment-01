@@ -91,7 +91,7 @@ h1{
   padding-right: 16px;
   transform: translate3d(0,0,0);
   z-index: 10;
-  background-color: rgba(240, 248, 255, 1);
+  background-color: rgba(255, 255, 255, 0.904);
   overflow: hidden !important;
 }
 
@@ -142,10 +142,10 @@ height: 100vh;
   height: 100%;
   
   margin: 0px;
-  border: solid 2px #f8005b49;
+  border: solid 2px #f8005b25;
   border-radius: 8px;
   border-top-left-radius: 0px ;
-  background-color:#000000;
+  background-color:#00000000;
   padding: 8px;
 }
 
@@ -177,8 +177,52 @@ height: 100vh;
   font-size: 14px;
   font-weight: 700;
   background-color:#121213;
-  color: var(--f7-theme-color);
+  color:#f8005b69;
 }
+
+.graffiti-tags{
+  height: fit-content;
+}
+
+.chip-wrapper{
+
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-gap: 8px;
+  padding: 8px;
+  height:100%;
+  width: 100%;
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 0.014);
+  border-radius: 0px;
+  }
+
+.chip{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #fd2c79ab;
+  background-color: #f8005b11 !important;
+  border-radius: .8rem;
+  border: solid 2px #f8005b18;
+  padding: 0px;
+}
+
+.chip:active{
+  width: 100%;
+  color: black;
+  background-color: #f8005bb6 !important;
+  border-radius: .8rem;
+  border: solid 2px #f8005b18;
+}
+
+
+
+
 
 
 /* Graffiti panel */
@@ -187,7 +231,9 @@ height: 100vh;
 }
 
 .graffiti-panel{
-  background-color: rgba(255, 0, 0, 0.048);
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 0, 0, 0);
 }
 
 .graffiti-search{
@@ -231,6 +277,33 @@ input.input-with-value{
 
 }
 
+.graffiti-wrapper {
+
+  display:grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+  
+
+  height: 100%;
+  width: 100%;
+  
+  background-color: rgba(102, 51, 153, 0);
+  padding: 8px;
+
+}
+
+.graffiti-thumbnail{
+
+ display: flex;
+ width: 100%;
+
+  background-color: #ffffff09;
+  border-radius: 6px;
+}
+
+
+
 
 
 /* KANVAS */
@@ -250,7 +323,7 @@ input.input-with-value{
   height:100%;
   width: 100%;
   margin: 0px;
-  background-color: rgba(245, 153, 232, 0.096);
+  background-color: rgba(255, 255, 255, 0.014);
   border-radius: 4px;
   }
 
@@ -270,13 +343,18 @@ input.input-with-value{
   align-items: center;
   justify-content: space-between;
   padding: 8px;
+  margin-top: 0px;
+  margin-bottom: 8px;
   grid-gap: 8px;
   background-color: rgba(255, 0, 0, 0);
 }
 
 
+/* side panel */
 
+.panel,.panel-right,.panel-cover{
 
-
-
-
+  background-color: rgba(245, 222, 179, 0);
+  margin-top: 88px;
+  height: fit-content;
+}
