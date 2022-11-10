@@ -1,0 +1,57 @@
+
+
+
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+
+.img {
+    position: absolute;
+    width: 200px !important;
+    height: 200px;
+    background-image: url(../img/graffiti/checker.png);
+    background-size: contain;
+
+}
+
+
+.pt-wrapper{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:200px;
+    width: 200px;
+  
+}
+
+.pt {
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+    border-radius: 11px;
+    background-color: rgb(25, 1, 56);
+    border: solid 4px #f8005b;
+    cursor: pointer;
+}
+
+
+
+
+
