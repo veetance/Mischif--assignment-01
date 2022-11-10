@@ -5,7 +5,7 @@
 
   <meta charset="utf-8" />
 
-  <meta http-equiv="Content-Security-Policy" content="connect-src *;" />
+  <!-- <meta http-equiv="Content-Security-Policy" content="connect-src *;" /> -->
 
   <title>Mischief_Graffiti</title>
 
@@ -27,57 +27,34 @@
   <div id="app">
 
     <!-- panel components go here -->
-     <!-- Right panel, with cover effect -->
+    <!-- Right panel, with cover effect -->
 
     <div class="panel panel-right panel-cover">
-      
+
       <div class="panel-wrapper">
 
         <div class="panel-header">
 
-            <div class="panel-header-ico">
+          <div class="panel-header-ico">
 
-              <a class="link icon-only">
-                <i class="material-symbols-outlined"
-                  >Image
-                </i>
-              </a>
+            <a class="link icon-only">
+              <i class="material-symbols-outlined">Image
+              </i>
+            </a>
 
-            </div>
+          </div>
 
-            <div class="user">Choose Background</div>
+          <div class="user">Choose Background</div>
 
         </div>
 
 
         <div class=" background-panel">
 
-          <div class="background-wrapper">
+          <div id="back-wrapper" class="background-wrapper">
 
-            <div class="background-thumbnail thumbnail">
 
-            </div>
 
-            <div class="background-thumbnail thumbnail">
-
-            </div>
-
-            <div class="background-thumbnail thumbnail">
-
-            </div>
-
-            <div class="background-thumbnail thumbnail">
-
-            </div>
-
-            <div class="background-thumbnail thumbnail">
-
-            </div>
-
-            <div class="background-thumbnail thumbnail">
-
-            </div>
-           
           </div>
 
           <div id="close" class="panel-close">
@@ -92,7 +69,7 @@
 
         </div>
 
-       
+
 
       </div>
 
@@ -122,7 +99,7 @@
 
           <!-- Additional "sliding" class -->
 
-          <div class="button">
+          <div id="panel-ham" class="button">
             <a class="material-symbols-outlined panel-open" data-panel="right">Add_Photo_Alternate</a>
           </div>
 
@@ -259,13 +236,6 @@
 
           </div>
 
-
-
-
-
-
-
-
         </div>
 
       </div>
@@ -284,8 +254,8 @@
   <!-- javascript links -->
 
   <script src="js/framework7-bundle.min.js"></script>
-  <script src="js/mr-rager-app.js"></script>
   <script src="js/jquery.js"></script>
+  <script src="js/mr-rager-app.js"></script>
 </body>
 
 </html>

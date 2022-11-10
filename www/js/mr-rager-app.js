@@ -18,3 +18,168 @@ var app = new Framework7({
 
 var mainView = app.views.create(".view-main");
 
+
+
+
+//  using jQuery create an array loop of 6 images from local folder and populate .background-wrapper with images that have a class of .background-thumbnail thumbnail
+
+var bkgimages = [
+  "../www/img/bkg-folder/bkg-01.png",
+  "../www/img/bkg-folder/bkg-02.png",
+  "../www/img/bkg-folder/bkg-03.png",
+  "../www/img/bkg-folder/bkg-04.png",
+  "../www/img/bkg-folder/bkg-05.png",
+  "../www/img/bkg-folder/bkg-06.png", ];
+
+  $(function() {
+  for (var i = 0; i < bkgimages.length; i++) {
+    var img = $('<img />', {
+      src: bkgimages[i],
+      class: "background-thumbnail thumbnail",
+      id: "bkg-" + i,
+    });
+    $(".background-wrapper").append(img);
+  }
+});
+
+
+
+
+// using j
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
