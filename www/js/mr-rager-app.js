@@ -23,12 +23,12 @@ var mainView = app.views.create(".view-main");
 
 //  using jQuery create an array loop of 6 images from local folder and populate.background-wrapper with images that have a class of .background-thumbnail thumbnail
 var bkgimages = [
-  "../www/img/bkg-folder/bkg-01.png",
-  "../www/img/bkg-folder/bkg-02.png",
-  "../www/img/bkg-folder/bkg-03.png",
-  "../www/img/bkg-folder/bkg-04.png",
-  "../www/img/bkg-folder/bkg-05.png",
-  "../www/img/bkg-folder/bkg-06.png", ];
+  "img/bkg-folder/bkg-01.png",
+  "img/bkg-folder/bkg-02.png",
+  "img/bkg-folder/bkg-03.png",
+  "img/bkg-folder/bkg-04.png",
+  "img/bkg-folder/bkg-05.png",
+  "img/bkg-folder/bkg-06.png", ];
 
   $(function() {
   for (var i = 0; i < bkgimages.length; i++) {
@@ -68,6 +68,10 @@ var pts = $(".pt");
 var IMG_WIDTH = 200;
 var IMG_HEIGHT = 200;
 
+var target;
+var targetPoint;
+
+
 
 var transform = new PerspectiveTransform(img[0], IMG_WIDTH, IMG_HEIGHT, true);
 var tl = pts.filter(".tl").css({
@@ -86,12 +90,13 @@ var br = pts.filter(".br").css({
     left : transform.bottomRight.x,
     top : transform.bottomRight.y
 });
-var target;
-var targetPoint;
 
-function onMouseMove(e) {
-    targetPoint.x = e.pageX - container.offset().left - 20;
-    targetPoint.y = e.pageY - container.offset().top - 20;
+
+
+// make sure the cuersor is below center of the point when dragging
+function onDragMove(e) {
+    targetPoint.x = e.pageX - container.offset().left - target.width() / .30;
+    targetPoint.y = e.pageY - container.offset().top - target.height() / .27;
     target.css({
         left : targetPoint.x,
         top : targetPoint.y
@@ -106,17 +111,107 @@ function onMouseMove(e) {
     }
 }
 
-//interaction 
 
-pts.mousedown(function(e) {
+// using jquery i started by settiing the target variable to the .pt that is being pressed, then check if that element has a class of .tl, .tr, .bl, or .br, if so then set the transform property of that element to topLeft, topRight, bottomLeft, or bottomRight respectively, then call apply() on an object called onDragMove. when touch is released window touchmove and onDragMove are removed.
+
+$(function() {
+  $(".pt").on("touchstart:withPreventDefault mousedown", function(e) {
+   
     target = $(this);
-    targetPoint = target.hasClass("tl") ? transform.topLeft : target.hasClass("tr") ? transform.topRight : target.hasClass("bl") ? transform.bottomLeft : transform.bottomRight;
-    onMouseMove.apply(this, Array.prototype.slice.call(arguments));
-    $(window).mousemove(onMouseMove);
-    $(window).mouseup(function() {
-        $(window).unbind('mousemove', onMouseMove);
-    })
+    if (target.hasClass("tl")) {
+      targetPoint = transform.topLeft;
+    } else if (target.hasClass("tr")) {
+      targetPoint = transform.topRight;
+    } else if (target.hasClass("bl")) {
+      targetPoint = transform.bottomLeft;
+    } else if (target.hasClass("br")) {
+      targetPoint = transform.bottomRight;
+    }
+    $(window).on("touchmove mousemove", onDragMove);
+  });
+  $(window).on("touchend mouseup", function(e) {
+    $(window).off("touchmove mousemove", onDragMove);
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+ 
+
+
+
+
+
+ 
 
 
 

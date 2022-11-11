@@ -18,7 +18,7 @@
     position: absolute;
     width: 200px !important;
     height: 200px;
-    background-image: url(../img/graffiti/checker.png);
+    background-image: url(../img/graffiti/graffiti-01.png);
     background-size: contain;
 
 }
@@ -45,12 +45,27 @@
     height: 30px;
     margin-left: -15px;
     margin-top: -15px;
-    border-radius: 11px;
-    background-color: rgb(25, 1, 56);
-    border: solid 4px #f8005b;
+    border-radius: 10px;
+    background-color: rgba(131, 40, 40, 0.274);
+    border: solid 2px #f8005b00;
     cursor: pointer;
+
+   
+
 }
 
+.pt:hover {
+   
+    border: solid 2px #f8005b86;
+    border-style: inset;
+}
+
+
+.pt:active {
+   
+    border: solid 4px #f8005b;
+    border-style: inset;
+}
 
 
 
