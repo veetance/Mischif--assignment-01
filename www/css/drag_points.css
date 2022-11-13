@@ -11,6 +11,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     overflow: hidden;
+
+    -ms-touch-action: none !important;
+    touch-action: none !important;
+    overscroll-behavior: none;
 }
 
 
@@ -18,7 +22,7 @@
     position: absolute;
     width: 200px !important;
     height: 200px;
-    background-image: url(../img/graffiti/graffiti-01.png);
+    background-image: url("../img/graffiti/1.png");
     background-size: contain;
 
 }
@@ -35,6 +39,9 @@
     flex-direction: column;
     height:200px;
     width: 200px;
+
+        -ms-touch-action: none;
+    touch-action: none;
   
 }
 
@@ -50,7 +57,13 @@
     border: solid 2px #f8005b00;
     cursor: pointer;
 
-   
+    -ms-touch-action: none !important;
+    touch-action: none !important;
+
+     -ms-touch-action: none !important;
+    touch-action: none !important;
+
+    overscroll-behavior: none;
 
 }
 

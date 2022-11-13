@@ -18,21 +18,20 @@ var app = new Framework7({
 
 var mainView = app.views.create(".view-main");
 
-
-
-
 //  using jQuery create an array loop of 6 images from local folder and populate.background-wrapper with images that have a class of .background-thumbnail thumbnail
+
 var bkgimages = [
   "img/bkg-folder/bkg-01.png",
   "img/bkg-folder/bkg-02.png",
   "img/bkg-folder/bkg-03.png",
   "img/bkg-folder/bkg-04.png",
   "img/bkg-folder/bkg-05.png",
-  "img/bkg-folder/bkg-06.png", ];
+  "img/bkg-folder/bkg-06.png",
+];
 
-  $(function() {
+$(function () {
   for (var i = 0; i < bkgimages.length; i++) {
-    var img = $('<img />', {
+    var img = $("<img />", {
       src: bkgimages[i],
       class: "background-thumbnail thumbnail panel-close ",
       id: "bkg-" + i,
@@ -41,12 +40,10 @@ var bkgimages = [
   }
 });
 
-
-
-
 //event listner function that clones .background-thumbnail onclick and appends it to .canvas-wrapper if the .canvas-wrapper has more than 1 image then remove the first image in the .canvas-wrapper and remove .thumbnail class from cloned image
-$(function() { 
-  $(".background-wrapper").on("click", ".background-thumbnail", function() {
+
+$(function () {
+  $(".background-wrapper").on("click", ".background-thumbnail", function () {
     var clonebkg = $(this).clone();
     $(".canvas-wrapper").append(clonebkg);
     if ($(".canvas-wrapper").children().length > 1) {
@@ -56,11 +53,7 @@ $(function() {
   });
 });
 
-
-
-
 // a free prespective transform function that warps image with 4 points jquery ui draggable
-
 
 var container = $("#container");
 var img = $(".img");
@@ -68,55 +61,91 @@ var pts = $(".pt");
 var IMG_WIDTH = 200;
 var IMG_HEIGHT = 200;
 
-var target;
-var targetPoint;
+var targetPoint = {
+  x: 0,
+  y: 0,
+};
 
-
+var target = null;
+var transform = null;
 
 var transform = new PerspectiveTransform(img[0], IMG_WIDTH, IMG_HEIGHT, true);
+
 var tl = pts.filter(".tl").css({
-    left : transform.topLeft.x,
-    top : transform.topLeft.y
+  left: transform.topLeft.x,
+  top: transform.topLeft.y,
 });
+
 var tr = pts.filter(".tr").css({
-    left : transform.topRight.x,
-    top : transform.topRight.y
+  left: transform.topRight.x,
+  top: transform.topRight.y,
 });
+
 var bl = pts.filter(".bl").css({
-    left : transform.bottomLeft.x,
-    top : transform.bottomLeft.y
+  left: transform.bottomLeft.x,
+  top: transform.bottomLeft.y,
 });
+
 var br = pts.filter(".br").css({
-    left : transform.bottomRight.x,
-    top : transform.bottomRight.y
+  left: transform.bottomRight.x,
+  top: transform.bottomRight.y,
 });
 
+// make sure the cursur is below center of the point when dragging
 
+function onTouchMove(e) {
+  targetPoint.x = e.pageX - container.offset().left - target.width() / 0.3;
+  targetPoint.y = e.pageY - container.offset().top - target.height() / 0.27;
+  target.css({
+    left: targetPoint.x,
+    top: targetPoint.y,
+  });
 
-// make sure the cuersor is below center of the point when dragging
-function onDragMove(e) {
-    targetPoint.x = e.pageX - container.offset().left - target.width() / .30;
-    targetPoint.y = e.pageY - container.offset().top - target.height() / .27;
-    target.css({
-        left : targetPoint.x,
-        top : targetPoint.y
-    });
-    
-    // check the polygon error, if it's 0, which mean there is no error
-    if(transform.checkError()==0){
-        transform.update();
-        img.show();
-    }else{
-        img.hide();
-    }
+  // check the polygon error, if it's 0, which mean there is no error
+  if (transform.checkError() == 0) {
+    transform.update();
+    img.show();
+  } else {
+    img.hide();
+  }
 }
 
+function onTouchEventHandle() {
 
-// using jquery i started by settiing the target variable to the .pt that is being pressed, then check if that element has a class of .tl, .tr, .bl, or .br, if so then set the transform property of that element to topLeft, topRight, bottomLeft, or bottomRight respectively, then call apply() on an object called onDragMove. when touch is released window touchmove and onDragMove are removed.
+  transform.topLeft.x = tl.position().left;
+  transform.topLeft.y = tl.position().top;
+  transform.topRight.x = tr.position().left;
+  transform.topRight.y = tr.position().top;
+  transform.bottomLeft.x = bl.position().left;
+  transform.bottomLeft.y = bl.position().top;
+  transform.bottomRight.x = br.position().left;
+  transform.bottomRight.y = br.position().top;
 
-$(function() {
-  $(".pt").on("touchstart:withPreventDefault mousedown", function(e) {
-   
+  target = $(this);
+
+  $(pts).on("touchstart", function (e) {
+    target = $(this);
+    onTouchMove(e.originalEvent.touches[0]);
+  });
+
+  $(pts).on("touchmove", function (e) {
+    onTouchMove(e.originalEvent.touches[0]);
+  });
+
+  $(pts).on("touchend", function (e) {
+    onTouchMove("X :" + e.changedTouches[0].pageX);
+    onTouchMove("Y :" + e.changedTouches[0].pageX);
+  });
+}
+
+pts.on("touchstart", onTouchEventHandle);
+pts.on("touchmove", onTouchEventHandle);
+pts.on("touchend", onTouchEventHandle);
+
+
+$(function () {
+
+  $(".pt").on("touchstart:withPreventDefault mousedown", function (e) {
     target = $(this);
     if (target.hasClass("tl")) {
       targetPoint = transform.topLeft;
@@ -127,277 +156,53 @@ $(function() {
     } else if (target.hasClass("br")) {
       targetPoint = transform.bottomRight;
     }
-    $(window).on("touchmove mousemove", onDragMove);
-  });
-  $(window).on("touchend mouseup", function(e) {
-    $(window).off("touchmove mousemove", onDragMove);
+
+    $(window).on("touchmove:withPreventDefault mousemove", onTouchMove);
+
+    $(window).on("touchend:withPreventDefault mouseup", function onTouchEnd() {
+      $(window).off("touchmove:withPreventDefault mousemove", onTouchMove);
+    });
+
+    onTouchMove.apply(this, Array.prototype.slice.call(arguments));
   });
 });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// graffiti-thumbnail //
+
+var GraffitiArray = [];
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "img/graffiti/", true);
+xhr.responseType = "document";
+xhr.onload = function (e) {
+
+  if (this.status == 200) {
+    var doc = this.responseXML;
+    var images = doc.querySelectorAll("a[href$='.png']");
+    var GraffitiArray = [];
+    for (var i = 0; i < images.length; i++) {
+      GraffitiArray.push(images[i].href);
+    }
+    for (var i = 0; i < GraffitiArray.length; i++) {
+      var img = document.createElement("img");
+      img.src = GraffitiArray[i];
+      img.className = "graffiti-thumbnail thumbnail panel-close";
+      document.getElementById("graffiti-wrapper").appendChild(img);
+    }
+
+  }  
+
+  if (this.status == 200) {
+
+    // fuinction GraffitiSets() grabs images in increments of 12 in acending order from the GraffitiArray and appends them to the graffiti-wrapper 
     
+  }
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+xhr.send();
 
 
 

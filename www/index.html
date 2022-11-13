@@ -4,8 +4,8 @@
 <head>
 
   <meta charset="utf-8" />
-
-  <!-- <meta http-equiv="Content-Security-Policy" content="connect-src *;" /> -->
+ 
+  <meta http-equiv="Content-Security-Policy" content="" crossorigin="" />
 
   <title>Mischief_Graffiti</title>
 
@@ -85,7 +85,6 @@
 
       <!-- NAVBAR -->
       <div class="navbar">
-
         <div class="navbar-inner">
 
           <!-- Additional "sliding" class -->
@@ -108,19 +107,16 @@
           </div>
 
         </div>
+      </div>
 
-
-
-        <div data-name="home" class="page page-homepage">
-          <!-- component is fixed to the page -->
-
-          <div class="page-content">
-            <!-- ...Page content goes here!... -->
-          </div>
-
+      <div data-name="home" class="page page-homepage">
+        <!-- component is fixed to the page -->
+        <div class="page-content">
+          <!-- ...Page content goes here!... -->
         </div>
       </div>
 
+      
       <div data-name="home" class="page">
         <!-- component is fixed to the page -->
 
@@ -141,6 +137,7 @@
                   <div id="draggable" class="pt-wrapper">
 
                     <div  class="img"></div>
+
                     <div class="pt tl"></div>
                     <div class="pt tr"></div>
                     <div class="pt bl"></div>
@@ -165,7 +162,7 @@
 
             <div class="top-search">
 
-              <div class="button nav-button-bottom">
+              <div class="button nav-button-top">
                 <a class="material-symbols-outlined">Arrow_back</a>
               </div>
 
@@ -205,77 +202,18 @@
               </div>
             </div>
 
-
-            <div class="graffiti-wrapper">
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail">
-
-              </div>
-
-              <div class="graffiti-thumbnail">
-
-              </div>
-
+            <div id="graffiti-wrapper" class="graffiti-wrapper">
             </div>
 
-
-
           </div>
-
-        </div>
 
       </div>
 
       <!-- Bottom Toolbar -->
 
-
-
     </div>
 
   </div>
-
-
-
 
   <!-- javascript links -->
 
@@ -283,9 +221,10 @@
 
   <script src="js/PerspectiveTransform.min.js"></script>
   <script src="js/framework7-bundle.min.js"></script>
-  <script src="js/p5.min.js"></script>
+  <script src="js/ajax.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/mr-rager-app.js"></script>
+ 
 
 
 

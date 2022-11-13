@@ -74,13 +74,7 @@ h1{
 /* navbar styles */
 
 .navbar {
-
-  overflow: hidden !important;
-  height: fit-content;
-
-  border-radius: 0rem 0rem .5rem .5rem ;
-  border: solid 1px #3b0116;
-
+  
 }
 
 
@@ -114,6 +108,11 @@ h1{
   background-color: #00000034;
 }
 
+.nav-button-top{
+
+  background-color: #00000034;
+}
+
 .navbar-inner{
   display: flex;
   align-items: center;
@@ -125,11 +124,17 @@ h1{
   padding-right: 16px;
   transform: translate3d(0,0,0);
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.904);
-  overflow: hidden !important;
+  background-color: rgba(0, 0, 0, 0.945);
+  backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(600rem);
+  
+  overflow:hidden !important;
+  border-radius: 0rem 0rem .5rem .5rem ;
+  border: solid 1px #3b0116;
 }
 
 .nav-logo{
+z-index: 1000;
 display: flex;
 width: 80px;
 height: 80px;
@@ -157,12 +162,13 @@ height: 80px;
 
 .page-content {
 display: grid;
+place-items: center;
 grid-template-rows: 1fr 1fr;
 grid-row-gap: 8px;
 padding: 0px;
 padding-top: 96px;
-background-color:#121213;
 height: 100vh;
+background-color: #121213;
 
 }
 
@@ -284,6 +290,8 @@ height: 100vh;
 
 .graffiti-panel{
   display: flex;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
   background-color: rgba(255, 0, 0, 0);
 }
@@ -351,16 +359,28 @@ input.input-with-value{
 
  display: flex;
  width: 100%;
- height: 100%;
+ height:100%;
+ min-height: 70px;
 
   background-color: #ffffff09;
   border-radius: 6px;
 }
 
 .thumbnail:active{
-
-  opacity: 65%;
+  opacity: 50% !important;
+  transform: scale(0.98) !important;
+  transition: all .5s cubic-bezier(0, 1.42, 0.66, 0.66);
 }
+
+.thumbnail:hover{
+  border: solid 3px #f8005b;
+  border-style: groove;
+  border-radius: 16px;
+  opacity: 80%;
+  transform: scale(0.98);
+  transition: all 0.5s cubic-bezier(0, 1.42, 0.66, 0.66);
+}
+
 
 /* Backgrounds panel */
 
@@ -371,15 +391,17 @@ input.input-with-value{
   grid-template-columns: 1fr 1fr;
   grid-gap: 8px;
   
-
   height: 100%;
   width: 100%;
   
- 
   padding: 8px;
   background-color: rgba(255, 255, 0, 0);
 
 }
+
+
+
+
 
 
 .background-panel{
@@ -433,6 +455,7 @@ input.input-with-value{
   justify-content: center;
   margin-left: 8px;
   margin-right: 8px;
+  height: fit-content;
 
 }
 
