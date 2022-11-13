@@ -18,7 +18,7 @@ var app = new Framework7({
 
 var mainView = app.views.create(".view-main");
 
-//  using jQuery create an array loop of 6 images from local folder and populate.background-wrapper with images that have a class of .background-thumbnail thumbnail
+// an array loop of 6 images from local folder and populate.background-wrapper with images that have a class of .background-thumbnail thumbnail
 
 var bkgimages = [
   "img/bkg-folder/bkg-01.png",
@@ -40,7 +40,7 @@ $(function () {
   }
 });
 
-//event listner function that clones .background-thumbnail onclick and appends it to .canvas-wrapper if the .canvas-wrapper has more than 1 image then remove the first image in the .canvas-wrapper and remove .thumbnail class from cloned image
+// event listner function that clones .background-thumbnail onclick and appends it to .canvas-wrapper if the .canvas-wrapper has more than 1 image then remove the first image in the .canvas-wrapper and remove .thumbnail class from cloned image
 
 $(function () {
   $(".background-wrapper").on("click", ".background-thumbnail", function () {
@@ -94,8 +94,8 @@ var br = pts.filter(".br").css({
 // make sure the cursur is below center of the point when dragging
 
 function onTouchMove(e) {
-  targetPoint.x = e.pageX - container.offset().left - target.width() / 0.3;
-  targetPoint.y = e.pageY - container.offset().top - target.height() / 0.27;
+  targetPoint.x = e.pageX - container.offset().left - target.width() -50;
+  targetPoint.y = e.pageY - container.offset().top - target.height() -70;
   target.css({
     left: targetPoint.x,
     top: targetPoint.y,
@@ -168,41 +168,92 @@ $(function () {
 });
 
 
-
-
-// graffiti-thumbnail //
+// dynamic array of maximum 200 and minimum is the current amount of found images, add the sum of images in local folder, preload and store in an object array named GraffitiArray using jquery
 
 var GraffitiArray = [];
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "img/graffiti/", true);
-xhr.responseType = "document";
-xhr.onload = function (e) {
+var GraffitiArrayLength = 0;
+var GraffitiArrayLengthMax = [200];
+var GraffitiArrayLengthMin = 0;
 
-  if (this.status == 200) {
-    var doc = this.responseXML;
-    var images = doc.querySelectorAll("a[href$='.png']");
-    var GraffitiArray = [];
-    for (var i = 0; i < images.length; i++) {
-      GraffitiArray.push(images[i].href);
-    }
-    for (var i = 0; i < GraffitiArray.length; i++) {
-      var img = document.createElement("img");
-      img.src = GraffitiArray[i];
-      img.className = "graffiti-thumbnail thumbnail panel-close";
-      document.getElementById("graffiti-wrapper").appendChild(img);
-    }
+for (var i = GraffitiArrayLengthMin; i < GraffitiArrayLengthMax; i++) {
+  src = "img/graffiti/graffiti-" + i + ".png";
+  GraffitiArray[i] = new Image();
+  GraffitiArray[i] = src;
+  GraffitiArrayLength++;
+}
+// console.log(GraffitiArray);
 
-  }  
+// an onLoad function Graffiti-img-200-ok that recieves and stores the an array of the images that have a response of 200, the image is not loaded and is not stored in the new array GraffitiArrayReady
 
-  if (this.status == 200) {
-
-    // fuinction GraffitiSets() grabs images in increments of 12 in acending order from the GraffitiArray and appends them to the graffiti-wrapper 
-    
+function GraffitiImg200Ok() {
+  var GraffitiArrayReady = [];
+  for (var i = 0; i < GraffitiArray.length; i++) {
+    var img = new Image();
+    img.src = GraffitiArray[i];
+    img.onload = function () {
+      GraffitiArrayReady.push(this.src);
+    };
   }
-};
+  console.log(GraffitiArrayReady);
+}
+
+$(window).on("load", GraffitiImg200Ok);
 
 
-xhr.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
