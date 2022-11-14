@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="utf-8" />
- 
+
   <!-- <meta http-equiv="Content-Security-Policy" content="" crossorigin="" /> -->
 
   <title>Mischief_Graffiti</title>
@@ -52,28 +52,22 @@
 
         </div>
 
-
         <div class=" background-panel">
 
-          <div id="back-wrapper" class="background-wrapper">
 
-
-
+          <div class="bkg-scroll-frame">
+            <div id="back-wrapper" class="background-wrapper">
+            </div>
           </div>
 
+
           <div id="close" class="panel-close">
-            <ul>
-              <div class="button">
-                <a href="#" data-panel="right"> Close </a>
-              </div>
-            </ul>
+            <a class="button" href="#">Close</a>
           </div>
 
 
 
         </div>
-
-
 
       </div>
 
@@ -85,27 +79,36 @@
 
       <!-- NAVBAR -->
       <div class="navbar">
+
         <div class="navbar-inner">
 
           <!-- Additional "sliding" class -->
 
-          <div class="left">
+          <div class="logo-side">
 
             <a href="/index/" class="nav-logo">
               <img src="img/His_Hand.png" alt="">
             </a>
-            <span class="right">
-              <h1>MR RAGER</h1>
+
+            <span class="app-name">
+              <h1>Mizzchff-Graffiti</h1>
             </span>
 
-          </div>
+            <a class=" panel-open" data-panel="right">
 
+              <div id="panel-ham" class="button">
+                <i class="material-symbols-outlined">
+
+                  Add_Photo_Alternate
+
+
+                </i>
+              </div>
+
+            </a>
+
+          </div>
           <!-- Additional "sliding" class -->
-
-          <div id="panel-ham" class="button">
-            <a class="material-symbols-outlined panel-open" data-panel="right">Add_Photo_Alternate</a>
-          </div>
-
         </div>
       </div>
 
@@ -116,13 +119,12 @@
         </div>
       </div>
 
-      
+
       <div data-name="home" class="page">
         <!-- component is fixed to the page -->
 
         <div class="page-content">
           <!-- ...Page content goes here!... -->
-
           <div class="canvas-plane">
 
             <div class="card">
@@ -130,13 +132,13 @@
                 <p>Canvas</p>
               </div>
 
-              <div  class="warp-canvas ui-widget-content">
+              <div class="warp-canvas ui-widget-content">
 
                 <div id="container">
 
                   <div id="draggable" class="pt-wrapper">
 
-                    <div  class="img"></div>
+                    <div class="img"></div>
 
                     <div class="pt tl"></div>
                     <div class="pt tr"></div>
@@ -149,8 +151,6 @@
 
               </div>
 
-
-
               <div class="canvas-wrapper">
               </div>
 
@@ -158,7 +158,9 @@
 
           </div>
 
+
           <div class="graffiti-panel">
+
 
             <div class="top-search">
 
@@ -168,7 +170,7 @@
 
               <div class="graffiti-search">
 
-                <input type="text" name="name" placeholder="Search Graffiti" />
+                <input type="text" name="name" placeholder="Search Graffiti"/>
 
                 <div class="button">
                   <a class="material-symbols-outlined">search</a>
@@ -178,55 +180,61 @@
 
               <div class="button nav-button-bottom">
                 <a class="material-symbols-outlined">Arrow_Forward</a>
-              </div>
+                </div>
 
             </div>
 
             <div class="graffiti-tags">
+
               <div class="chip-wrapper">
 
                 <div class="chip chip-outline">
                   <div class="chip-label">Happy face</div>
                 </div>
+
                 <div class="chip chip-outline">
-                  <div class="chip-label">Happy face</div>
-                </div>
-                <div class="chip chip-outline">
-                  <div class="chip-label">Happy face</div>
+                  <div class="chip-label">Cool Lines</div>
                 </div>
 
+                <div class="chip chip-outline">
+                  <div class="chip-label">Heart</div>
+                </div>
 
+                <div class="chip chip-outline">
+                  <div class="chip-label">Cubizim</div>
+                </div>
 
+                <div class="chip chip-outline">
+                  <div class="chip-label">Rage</div>
+                </div>
 
+                <div class="chip chip-outline">
+                  <div class="chip-label">Figure</div>
+                </div>
 
               </div>
+
             </div>
 
-            <div id="graffiti-wrapper" class="graffiti-wrapper">
+            <div id="Gwrapper" class="graffiti-wrapper">
             </div>
 
           </div>
 
-      </div>
+        </div>
 
-      <!-- Bottom Toolbar -->
+        <!-- Bottom Toolbar -->
+
+      </div>
 
     </div>
 
-  </div>
-
-  <!-- javascript links -->
-
-
-
-  <script src="js/PerspectiveTransform.min.js"></script>
-  <script src="js/framework7-bundle.min.js"></script>
-  <script src="js/ajax.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/mr-rager-app.js"></script>
- 
-
-
+    <!-- javascript links -->
+    <script src="js/PerspectiveTransform.min.js"></script>
+    <script src="js/framework7-bundle.min.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/mr-rager-app.js"></script>
 
 </body>
 

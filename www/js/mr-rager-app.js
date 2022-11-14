@@ -5,7 +5,7 @@ var app = new Framework7({
 
   routes: [
     {
-      path: "/",
+      path: "/index/",
       url: "index.html",
     },
 
@@ -172,7 +172,7 @@ $(function () {
 
 var GraffitiArray = [];
 var GraffitiArrayLength = 0;
-var GraffitiArrayLengthMax = [200];
+var GraffitiArrayLengthMax = [120];
 var GraffitiArrayLengthMin = 0;
 
 for (var i = GraffitiArrayLengthMin; i < GraffitiArrayLengthMax; i++) {
@@ -181,23 +181,58 @@ for (var i = GraffitiArrayLengthMin; i < GraffitiArrayLengthMax; i++) {
   GraffitiArray[i] = src;
   GraffitiArrayLength++;
 }
-// console.log(GraffitiArray);
+console.log(GraffitiArray);
 
-// an onLoad function Graffiti-img-200-ok that recieves and stores the an array of the images that have a response of 200, the image is not loaded and is not stored in the new array GraffitiArrayReady
 
-function GraffitiImg200Ok() {
-  var GraffitiArrayReady = [];
-  for (var i = 0; i < GraffitiArray.length; i++) {
-    var img = new Image();
-    img.src = GraffitiArray[i];
-    img.onload = function () {
-      GraffitiArrayReady.push(this.src);
-    };
+//LoadAllGraffiti grabs all the images in the array GraffitiArray and appends them to the .graffiti-wrapper div on page load then adds the .graffiti-thumbnail .thumbnail class to each image 
+
+function LoadAllGraffiti() {
+  for (var i = 0; i < GraffitiArrayLength; i++) {
+    var img = $("<img />", {
+      src: GraffitiArray[i],
+      class: "graffiti-thumbnail thumbnail ",
+      id: "graffiti-" + i,
+    });
+    $(".graffiti-wrapper").append(img);
   }
-  console.log(GraffitiArrayReady);
 }
 
-$(window).on("load", GraffitiImg200Ok);
+//call the function LoadAllGraffiti on page load
+
+$(function () {
+  LoadAllGraffiti();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
