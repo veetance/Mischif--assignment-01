@@ -17,21 +17,24 @@
     overscroll-behavior: none;
 }
 
+#draggable {
+
+    display: none;
+}
+
+
 
 .img {
+    
     position: absolute;
     width: 200px !important;
-    height: 200px;
+    height: 200px !important;
     background-image: url("../img/graffiti/graffiti-7.png");
     background-size: contain;
-
-    border:2px #f8005b56;
-
-    border-style: dashed; ;
-
-    
-
 }
+
+
+
 
 
 .pt-wrapper{
@@ -60,7 +63,7 @@
     margin-top: -15px;
     border-radius: 10px;
     background-color: rgba(131, 40, 40, 0.274);
-    border: solid 2px #f8005b00;
+    border: solid 1px #ff72a681;
     cursor: pointer;
 
     -ms-touch-action: none !important;
@@ -72,6 +75,10 @@
     overscroll-behavior: none;
 
 }
+
+
+
+
 
 .pt:hover {
    

@@ -4,10 +4,11 @@
 <head>
 
   <meta charset="utf-8" />
-
   <!-- <meta http-equiv="Content-Security-Policy" content="" crossorigin="" /> -->
-
   <title>Mischief_Graffiti</title>
+
+  
+  <link rel="icon" href="/www/res/app-icon.png" type="image/x-icon" />
 
   <meta name="viewport" content="initial-scale=1, width=device-width,viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -19,12 +20,14 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
   <link rel="stylesheet" href="css/drag_points.css" type="text/css" />
 
   <link rel="stylesheet" href="css/framework7-bundle.min.css" />
   <link rel="stylesheet" href="css/framework7-icons.css" />
   <link rel="stylesheet" href="css/styles.css" />
+
 </head>
 
 <body>
@@ -61,9 +64,19 @@
           </div>
 
 
-          <div id="close" class="panel-close">
-            <a class="button" href="#">Close</a>
+        <div class="panel-btn">  
+        
+        <div id="close" class="panel-close">
+          <a class="button" href="#">Close</a>
+        </div>
+
+        <div class="camera-section">
+          <div class="button">
+            <a class="material-symbols-rounded"> <p>Photo_Camera</p> </a>
           </div>
+        </div>
+      
+        </div>
 
 
 
@@ -98,10 +111,7 @@
 
               <div id="panel-ham" class="button">
                 <i class="material-symbols-outlined">
-
                   Add_Photo_Alternate
-
-
                 </i>
               </div>
 
@@ -125,23 +135,27 @@
 
         <div class="page-content">
           <!-- ...Page content goes here!... -->
+
+
+
           <div class="canvas-plane">
 
             <div class="card">
+
               <div class="card-header no-hairline">
                 <p>Canvas</p>
               </div>
 
-              <div class="warp-canvas ui-widget-content">
+              <div class="warp-canvas">
 
                 <div id="container">
 
-                  <div id="draggable" class="pt-wrapper">
+                  <div id="draggable" class=" pt-wrapper">
 
                     <div class="img"></div>
-
                     <div class="pt tl"></div>
                     <div class="pt tr"></div>
+
                     <div class="pt bl"></div>
                     <div class="pt br"></div>
 
@@ -151,15 +165,102 @@
 
               </div>
 
+
+
               <div class="canvas-wrapper">
+
+
+
+                <div class="instructions">
+
+                  <div class="instruction-Header">
+                    <h1>How To Use</h1>
+                  </div>
+
+                  <ol>
+
+                    <li>Touch the ico on left top bar</li>
+                    <li>Choose a Background from panel</li>
+                    <li>Choose or search a Graffiti</li>
+                    <li>Pick a graffiti</li>
+                    <li>Use points to match prespective</li>
+                    <li>Choose overlay number</li>
+                    <li>Download your final canvas</li>
+
+                  </ol>
+
+                </div>
+
               </div>
 
             </div>
 
+
+
           </div>
 
-
           <div class="graffiti-panel">
+
+            <div class="overlay-header">
+              <p>Choose Overlay</p>  
+            </div>
+
+            <div class="overlay-opt">
+
+              <div class="overlay-section">
+
+                <div id="1-normal" class=" overlay-button">
+                  <a class="#"> <p>1</p> </a>
+                </div>
+
+
+                <div id="2-multiply" class="overlay-button">
+                  <a class="#"> <p>2</p> </a>
+                </div>
+
+                <div id="3-color-dodge" class="overlay-button">
+                  <a class="#"> <p>3</p> </a>
+                </div>
+
+                <div id="4-overlay" class="overlay-button">
+                  <a class="#"> <p>4</p> </a>
+                </div>
+
+                <div id="5-soft-light" class="overlay-button">
+                  <a class="#"> <p>5</p> </a>
+                </div>
+
+                <div id="6-difference" class="overlay-button">
+                  <a class="#"> <p>6</p> </a>
+                </div>
+
+                <div id="7-exclusion" class="overlay-button">
+                  <a class="#"> <p>7</p> </a>
+                </div>
+
+
+              </div>
+
+              <div class="left-toggle-chips">
+
+                
+
+                <div class="overlay-section download-section">
+
+                  <div class="visibility-button material-symbols-outlined">
+                    <p>Visibility</p>
+                  </div>
+                  
+                  <div class="download-btn">
+                    <a class="material-symbols-outlined"> <p>Download</p> </a>
+                  </div>
+
+                </div>
+                
+              </div>
+              
+
+            </div>
 
 
             <div class="top-search">
@@ -170,7 +271,7 @@
 
               <div class="graffiti-search">
 
-                <input type="text" name="name" placeholder="Search Graffiti"/>
+                <input type="text" name="name" placeholder="Search Graffiti" /></input>
 
                 <div class="button">
                   <a class="material-symbols-outlined">search</a>
@@ -180,7 +281,7 @@
 
               <div class="button nav-button-bottom">
                 <a class="material-symbols-outlined">Arrow_Forward</a>
-                </div>
+              </div>
 
             </div>
 
@@ -230,11 +331,15 @@
     </div>
 
     <!-- javascript links -->
-    <script src="js/PerspectiveTransform.min.js"></script>
+    
     <script src="js/framework7-bundle.min.js"></script>
-    <script src="js/ajax.js"></script>
+    <script src="js/PerspectiveTransform.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/canvas2image.js"></script>
+    
     <script src="js/jquery.js"></script>
     <script src="js/mr-rager-app.js"></script>
+    
 
 </body>
 
